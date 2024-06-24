@@ -1,39 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome to My GitHub Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        .navbar {
+        .container {
+            width: 80%;
+            margin: auto;
             overflow: hidden;
-            background-color: #333;
         }
-        .navbar a {
-            float: left;
-            display: block;
+        header {
+            background: #50b3a2;
             color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
         }
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #showcase {
+            min-height: 400px;
+            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center/cover;
+            text-align: center;
+            color: #ffffff;
+        }
+        #showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        #showcase p {
+            font-size: 20px;
+        }
+        #video {
+            padding: 15px;
+            color: #ffffff;
+            background: #35424a;
+        }
+        #video h2 {
+            text-align: center;
+        }
+        #video .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        #video .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #boxes {
+            margin-top: 20px;
+        }
+        #boxes .box {
+            float: left;
+            text-align: center;
+            width: 30%;
+            padding: 10px;
+        }
+        #boxes .box img {
+            width: 90px;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #e8491d;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-    </div>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Your</span> Name</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <h1>Hello, World!</h1>
-    <p>This is my GitHub Pages site.</p>
+    <section id="showcase">
+        <div class="container">
+            <h1>Welcome to My Personal Website</h1>
+            <p>Discover my journey, projects, and thoughts on technology and design.</p>
+        </div>
+    </section>
+
+    <section id="video">
+        <div class="container">
+            <h2>Featured Video</h2>
+            <div class="video-container">
+                <!-- Replace the src with your YouTube video embed link -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/6feVF3FHyok" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="boxes">
+        <div class="container">
+            <div class="box">
+                <img src="https://cdn3.iconfinder.com/data/icons/web-design-and-development-2-6/512/87-512.png" alt="Web Design">
+                <h3>Web Design</h3>
+                <p>Creating beautiful and functional websites is my passion.</p>
+            </div>
+            <div class="box">
+                <img src="https://cdn0.iconfinder.com/data/icons/mobile-device/512/programming-code-window-512.png" alt="Programming">
+                <h3>Programming</h3>
+                <p>I love solving problems and building applications with code.</p>
+            </div>
+            <div class="box">
+                <img src="https://cdn3.iconfinder.com/data/icons/digital-and-internet-marketing-2-1/50/83-512.png" alt="Digital Marketing">
+                <h3>Digital Marketing</h3>
+                <p>Helping businesses grow their online presence and reach their audience.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-
