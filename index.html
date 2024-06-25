@@ -92,6 +92,42 @@
             color: #666;
             margin-top: 40px;
         }
+                .ai-app-generator {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+        }
+        
+        .ai-app-generator h2 {
+            margin-top: 0;
+        }
+        
+        #aiAppIdea {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        
+        #generateButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #generateButton:hover {
+            background-color: #45a049;
+        }
+        
+        #loadingIndicator {
+            display: none;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
@@ -110,6 +146,7 @@
                     <a href="https://twitter.com/yjleeg2015" target="_blank">Twitter</a>
                 </nav>
             </div>
+            
         </header>
 
         <div class="intro-text">
@@ -163,7 +200,51 @@
                 </a>
                 <!-- Add more blog post items as needed -->
             </div>
+            
         </section>
+            <section class="ai-app-generator">
+            <h2>AI App Idea Generator</h2>
+            <p>Click the button below to generate a new AI app idea using Claude!</p>
+            <button id="generateButton">Generate AI App Idea</button>
+            <div id="loadingIndicator">Generating idea...</div>
+            <p id="aiAppIdea"></p>
+        </section>
+    </div>
+        <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+            const button = this;
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const aiAppIdeaElement = document.getElementById('aiAppIdea');
+            
+            button.disabled = true;
+            loadingIndicator.style.display = 'block';
+            aiAppIdeaElement.textContent = '';
+
+            // Make API call to your backend server
+            fetch('/api/generate-ai-app-idea', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    prompt: "Generate a unique and innovative AI app idea. Describe it in one or two sentences."
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                aiAppIdeaElement.textContent = data.idea;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                aiAppIdeaElement.textContent = 'An error occurred while generating the idea. Please try again.';
+            })
+            .finally(() => {
+                button.disabled = false;
+                loadingIndicator.style.display = 'none';
+            });
+        });
+    </script>
+
 
 </body>
 </html>
