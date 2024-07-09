@@ -190,61 +190,17 @@
                 <a href="/blog/post2" class="scroll-item">
                     <img src="/api/placeholder/300/140" alt="Blog post 2">
                     <div class="item-content">
-                        <h3>Meditation journey</h3>
+                        <h3>Favorite books</h3>
                     </div>
                 </a>
                 <a href="/blog/post3" class="scroll-item">
                     <div class="item-content">
-                        <h3>Post AGI society</h3>
+                        <h3>Meditations</h3>
                     </div>
                 </a>
                 <!-- Add more blog post items as needed -->
             </div>
             
-        </section>
-            <section class="ai-app-generator">
-            <h2>AI App Idea Generator</h2>
-            <p>Click the button below to generate a new AI app idea using Claude!</p>
-            <button id="generateButton">Generate AI App Idea</button>
-            <div id="loadingIndicator">Generating idea...</div>
-            <p id="aiAppIdea"></p>
-        </section>
-    </div>
-        <script>
-        document.getElementById('generateButton').addEventListener('click', function() {
-            const button = this;
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const aiAppIdeaElement = document.getElementById('aiAppIdea');
-            
-            button.disabled = true;
-            loadingIndicator.style.display = 'block';
-            aiAppIdeaElement.textContent = '';
-
-            // Make API call to your backend server
-            fetch('/api/generate-ai-app-idea', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    prompt: "Generate a unique and innovative AI app idea. Describe it in one or two sentences."
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                aiAppIdeaElement.textContent = data.idea;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                aiAppIdeaElement.textContent = 'An error occurred while generating the idea. Please try again.';
-            })
-            .finally(() => {
-                button.disabled = false;
-                loadingIndicator.style.display = 'none';
-            });
-        });
-    </script>
-
 
 </body>
 </html>
